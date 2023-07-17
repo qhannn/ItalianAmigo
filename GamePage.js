@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
+
 import './App.css';
 import { wordPairs_data, wordPairs_data_2 } from './data';
 import { sliceAndShuffleWordPairs } from './utilityFunctions';
@@ -7,7 +9,9 @@ import { LevelTwo } from './LevelTwo';
 
 // The main GamePage component
 function GamePage({ username }) {
-
+  // Navigation function
+  // Navigation function
+  const navigate = useNavigate();
   // State for selected words
   const [selectedWords, setSelectedWords] = useState([]);
   // State for matched words
@@ -44,16 +48,21 @@ const checkMatch = useCallback(() => {
       setMatchedWords(newMatchedWords);
       
       // Level up if all words are matched
-      if (newMatchedWords.length >= 1 && newMatchedWords.length === Object.keys(newWordPairs).length * 2) {
-        setTimeout(() => {
-          setGameLevel((gameLevel) => gameLevel + 1);
-        }, 2000); // Wait for 2 seconds before leveling up
-      }
+      // Level up if all words are matched
+    if (newMatchedWords.length >= 1 && newMatchedWords.length === Object.keys(newWordPairs).length * 2) {
+      setTimeout(() => {
+        setGameLevel((gameLevel) => gameLevel + 1);
+        // If level is 3 (game is completed), navigate to the first page
+        if (gameLevel + 1 === 3) {
+          navigate('/');
+        }
+      }, 2000); // Wait for 2 seconds before leveling up
     }
     // Reset selected words for the next turn
     setSelectedWords([]);
   }
-}, [selectedWords, gameLevel, newWordPairs, matchedWords]);
+}
+}, [selectedWords, gameLevel, newWordPairs, matchedWords, navigate]); // Include navigate in dependencies
 
   // Check if a word is already matched
   const isWordMatched = (word) => matchedWords.includes(word);
