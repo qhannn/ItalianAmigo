@@ -1,0 +1,105 @@
+
+// Our dictionary data
+const wordPairs_data = {
+    'gatto': 'kedi',       // cat
+    'cane': 'köpek',       // dog
+    'casa': 'ev',          // house
+    'albero': 'ağaç',      // tree
+    'tavolo': 'masa',      // table
+    'libro': 'kitap',      // book
+    'pioggia': 'yağmur',   // rain
+    'montagna': 'dağ',     // mountain
+    'fiore': 'çiçek',      // flower
+    'scuola': 'okul',      // school
+    'verde': 'yeşil',      // green
+    'blu': 'mavi',         // blue
+    'bianco': 'beyaz',     // white
+    'nero': 'siyah',       // black
+    'rosso': 'kırmızı',    // red
+    'giallo': 'sarı',      // yellow
+    'grigio': 'gri',       // gray
+    'viola': 'mor',        // purple
+    'arancia': 'turuncu',  // orange
+    'limone': 'limon',     // lemon
+    'cielo': 'gökyüzü',    // sky
+    'nuvola': 'bulut',     // cloud
+    'stella': 'yıldız',    // star
+    'luna': 'ay',          // moon
+    'sole': 'güneş',       // sun
+    'neve': 'kar',         // snow
+    'vento': 'rüzgar',     // wind
+    'pianta': 'bitki',     // plant
+    'acqua': 'su',         // water
+    'fuoco': 'ateş',       // fire
+    'terra': 'toprak',     // earth
+    'fiume': 'nehir',      // river
+    'mare': 'deniz',       // sea
+    'bosco': 'orman',      // forest
+    'città': 'şehir',      // city
+    'paese': 'ülke',       // country
+    'musica': 'müzik',     // music
+    'arte': 'sanat',       // art
+    'gioco': 'oyun',       // game
+    'amico': 'arkadaş',    // friend
+    'famiglia': 'aile',    // family
+    'tempo': 'zaman',      // time
+    'vita': 'hayat',       // life
+    'sogno': 'rüya',       // dream
+    'riso': 'gülme',       // laughter
+  };
+  
+  const wordPairs_data_2 = {
+    'filosofia': 'felsefe',    // philosophy
+    'universo': 'evren',       // universe
+    'mistero': 'gizem',        // mystery
+    'rivoluzione': 'devrim',   // revolution
+    'rispetto': 'saygı',       // respect
+    'gratitudine': 'şükran',   // gratitude
+    'responsabilità': 'sorumluluk', // responsibility
+    'procrastinazione': 'erteleme', // procrastination
+    'melodia': 'melodi',       // melody
+    'immaginazione': 'hayal gücü', // imagination
+    'esperienza': 'deneyim',   // experience
+    'sostenibilità': 'sürdürülebilirlik', // sustainability
+    'comunità': 'topluluk',    // community
+    'comprensione': 'anlayış', // understanding
+    'discriminazione': 'ayrımcılık', // discrimination
+    'compassione': 'merhamet', // compassion
+    'conoscenza': 'bilgi',     // knowledge
+    'spirito': 'ruh',          // spirit
+    'conquistare': 'fethetmek', // conquer
+    'transizione': 'geçiş',    // transition
+    'ambizione': 'hırs',       // ambition
+    'interazione': 'etkileşim', // interaction
+    'innovazione': 'inovasyon', // innovation
+    'evoluzione': 'evrim',     // evolution
+    'adattamento': 'uyum',     // adaptation
+    'individualità': 'bireysellik', // individuality
+    'aspirazione': 'hedef',    // aspiration
+    'integrità': 'bütünlük',   // integrity
+    'informazione': 'bilgi',   // information
+    'equilibrio': 'denge',     // balance
+    'opportunità': 'fırsat',   // opportunity
+    'realizzazione': 'gerçekleştirme', // realization
+    'diversità': 'çeşitlilik', // diversity
+    'intuizione': 'sezgi',     // intuition
+    'risorsa': 'kaynak',       // resource
+    'risoluzione': 'çözüm',    // resolution
+    'assunzione': 'varsayım',  // assumption
+    'collegamento': 'bağlantı', // connection
+    'deduzione': 'çıkarım',    // deduction
+    'delegazione': 'delegasyon', // delegation
+    'dilemma': 'ikilem',       // dilemma
+    'dominio': 'hükümranlık',  // dominion
+    'efficienza': 'verimlilik', // efficiency
+    'empatia': 'empati',       // empathy
+    'espansione': 'genişleme', // expansion
+    'espressione': 'ifade',    // expression
+    'influenza': 'etki',       // influence
+    'meditazione': 'meditasyon', // meditation
+    'necessità': 'gereklilik', // necessity
+    'percezione': 'algı',      // perception
+    'visione': 'vizyon'        // vision
+  };
+
+  export { wordPairs_data, wordPairs_data_2 };
