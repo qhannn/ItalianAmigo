@@ -2,14 +2,14 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
 import './App.css';
-import { wordPairs_data, wordPairs_data_2 } from './data';
+import { wordPairs_data, wordPairs_data_2, wordPairs_data_3 } from './data';
 import { sliceAndShuffleWordPairs } from './utilityFunctions';
 import { LevelOne } from './LevelOne';
 import { LevelTwo } from './LevelTwo';
+import { LevelThree } from './LevelThree';
 
 // The main GamePage component
 function GamePage({ username }) {
-  // Navigation function
   // Navigation function
   const navigate = useNavigate();
   // State for selected words
@@ -39,7 +39,8 @@ function GamePage({ username }) {
   // Check if the selected words match
 const checkMatch = useCallback(() => {
   const [word1, word2] = selectedWords;
-  const wordPairsData = gameLevel === 2 ? wordPairs_data_2 : wordPairs_data;
+  const wordPairsData = gameLevel === 1 ? wordPairs_data : gameLevel === 2 ? wordPairs_data_2 : wordPairs_data_3;
+
   
   // If the words are a match, add them to the matched words
   if (word1 && word2) {
@@ -48,12 +49,11 @@ const checkMatch = useCallback(() => {
       setMatchedWords(newMatchedWords);
       
       // Level up if all words are matched
-      // Level up if all words are matched
     if (newMatchedWords.length >= 1 && newMatchedWords.length === Object.keys(newWordPairs).length * 2) {
       setTimeout(() => {
         setGameLevel((gameLevel) => gameLevel + 1);
         // If level is 3 (game is completed), navigate to the first page
-        if (gameLevel + 1 === 3) {
+        if (gameLevel + 1 === 4) {
           navigate('/');
         }
       }, 2000); // Wait for 2 seconds before leveling up
@@ -61,6 +61,10 @@ const checkMatch = useCallback(() => {
     // Reset selected words for the next turn
     setSelectedWords([]);
   }
+  else {
+      // If the words are not a match, unselect all
+      setSelectedWords([]);
+    }
 }
 }, [selectedWords, gameLevel, newWordPairs, matchedWords, navigate]); // Include navigate in dependencies
 
@@ -69,7 +73,7 @@ const checkMatch = useCallback(() => {
 
   // Function to get new word pairs
   const getNewWordPairs = (gameLevel) => {
-    const wordPairsData = gameLevel === 2 ? wordPairs_data_2 : wordPairs_data;
+    const wordPairsData = gameLevel === 1 ? wordPairs_data : gameLevel === 2 ? wordPairs_data_2 : wordPairs_data_3;
     const slicedWordPairs = sliceAndShuffleWordPairs(wordPairsData);
     console.log(slicedWordPairs);
     return slicedWordPairs;
@@ -120,6 +124,19 @@ const checkMatch = useCallback(() => {
   } else if (gameLevel === 2) {
     return (
       <LevelTwo 
+        newWordPairs={newWordPairs} 
+        matchedWords={matchedWords}
+        gameDuration={gameDuration}
+        handleWordClick={handleWordClick}
+        isWordMatched={isWordMatched}
+        selectedWords={selectedWords}
+        gameLevel={gameLevel}
+        username={username}
+      />
+    );
+  } else if (gameLevel === 3) {
+    return (
+      <LevelThree 
         newWordPairs={newWordPairs} 
         matchedWords={matchedWords}
         gameDuration={gameDuration}
